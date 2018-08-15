@@ -28,8 +28,8 @@ class KSMainView: UIView {
     
     func __initView() {
         let whiteColor = UIColor.white
-        
         backgroundColor = whiteColor;
+        
         let items : [NSString] = ["列表", "年历", "月历", "日历"];
         let count = items.count;
         let bounds = self.bounds;

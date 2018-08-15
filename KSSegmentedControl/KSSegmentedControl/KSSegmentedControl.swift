@@ -11,9 +11,9 @@ import UIKit
 class KSSegmentedItemLayer: CATextLayer {
     override init() {
         super.init();
-        self.isWrapped = true;
-        self.alignmentMode = kCAAlignmentCenter;
-        self.contentsScale = UIScreen.main.scale;
+        isWrapped = true;
+        alignmentMode = kCAAlignmentCenter;
+        contentsScale = UIScreen.main.scale;
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,7 +24,7 @@ class KSSegmentedItemLayer: CATextLayer {
 class KSSegmentedControl: UIView {
     
     public private(set) var _items : [NSString]!
-    public  var _didClickItem : ((_ index : Int)->Void)?
+    public var _didClickItem : ((_ index : Int)->Void)?
     
     private var _font : UIFont!
     private var _normalTextColor : UIColor!
@@ -207,7 +207,7 @@ class KSSegmentedControl: UIView {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event);
-        if (self._didClickItem) != nil {
+        if _didClickItem != nil {
             let touch = touches.first!;
             let location = touch.location(in: self);
             if bounds.contains(location) {
