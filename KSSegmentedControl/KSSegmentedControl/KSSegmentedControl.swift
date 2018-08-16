@@ -24,7 +24,7 @@ class KSSegmentedItemLayer: CATextLayer {
 class KSSegmentedControl: UIView {
     
     public private(set) var _items : [NSString]!
-    public var _didClickItem : ((_ index : Int)->Void)?
+    public var _didClickItem : ((_ index : Int, _ isAnimation : Bool)->Void)?
     
     private var _font : UIFont!
     private var _normalTextColor : UIColor!
@@ -111,7 +111,12 @@ class KSSegmentedControl: UIView {
         path.addArc(withCenter: CGPoint(x: width-radius, y: height-radius), radius: radius, startAngle:0.0, endAngle: pi*0.5, clockwise: true);
         path.addArc(withCenter: CGPoint(x: radius, y: height-radius), radius: radius, startAngle:pi*0.5, endAngle: pi, clockwise: true);
         path.close();
-        _maskLayer?.path = path.cgPath;
+        _maskLayer.path = path.cgPath;
+        
+        let selectedSegmentIndex = _selectedSegmentIndex!;
+        if selectedSegmentIndex != 0 && _didClickItem != nil {
+            _didClickItem!(selectedSegmentIndex, false);
+        }
     }
     
     public func scrollViewDidScroll(scrollView : UIScrollView!) {
@@ -214,7 +219,7 @@ class KSSegmentedControl: UIView {
                 let page = location.x/(frame.size.width/CGFloat(_items.count));
                 let index = Int(page);
                 _selectedSegmentIndex = index;
-                _didClickItem!(index);
+                _didClickItem!(index, true);
             }
         }
     }
