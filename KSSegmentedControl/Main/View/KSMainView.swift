@@ -70,10 +70,10 @@ class KSMainView: UIView {
         segmented.normalTextColor = color;
         segmented.cornerRadius = 6.0;
         weak var weakSelf = self;
-        segmented._didClickItem = { (index) -> Void in
+        segmented._didClickItem = { (index, isAnimation) -> Void in
             let k_scrollView = weakSelf?._scrollView;
             let x = k_scrollView!.frame.size.width*CGFloat(index);
-            k_scrollView?.setContentOffset(CGPoint(x:x , y: 0.0), animated: true);
+            k_scrollView?.setContentOffset(CGPoint(x:x , y: 0.0), animated:isAnimation);
         };
         topBar.addSubview(segmented);
         _segmented = segmented;

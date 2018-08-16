@@ -15,7 +15,7 @@ class KSMainViewController: UIViewController, UIScrollViewDelegate {
         let view = KSMainView.init(frame: self.view.frame);
         view._scrollView.delegate = self;
         self.view = view;
-        view._segmented.selectedSegmentIndex = 3;
+        view._segmented.selectedSegmentIndex = 2;
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

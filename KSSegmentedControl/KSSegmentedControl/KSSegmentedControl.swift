@@ -114,7 +114,7 @@ class KSSegmentedControl: UIView {
         _maskLayer.path = path.cgPath;
         
         let selectedSegmentIndex = _selectedSegmentIndex!;
-        if selectedSegmentIndex != 0 && _didClickItem != nil {
+        if _didClickItem != nil && selectedSegmentIndex != 0 {
             _didClickItem!(selectedSegmentIndex, false);
         }
     }
