@@ -23,7 +23,7 @@ class KSSegmentedItemLayer: CATextLayer {
 
 class KSSegmentedControl: UIView {
     
-    public private(set) var _items : [NSString]!
+    public private(set) var _items : [String]!
     public var _didClickItem : ((_ index : Int, _ isAnimation : Bool)->Void)?
     
     private var _font : UIFont!
@@ -37,7 +37,7 @@ class KSSegmentedControl: UIView {
     private var _normalTextLayerArray : [KSSegmentedItemLayer]!
     private var _highlightTextLayerArray : [KSSegmentedItemLayer]!
     
-    public init(frame: CGRect, items: [NSString]) {
+    public init(frame: CGRect, items: [String]) {
         super.init(frame: frame);
         _items = items;
         __initView();
@@ -83,11 +83,11 @@ class KSSegmentedControl: UIView {
     }
     
     override func layoutSublayers(of layer: CALayer) {
-        _highlightLayer?.frame = layer.bounds;
+        _highlightLayer.frame = layer.bounds;
         let size = layer.bounds.size;
-        let count = _items!.count;
+        let count = _items.count;
         var viewX: CGFloat = 0.0;
-        let viewH: CGFloat = (_font?.lineHeight)!;
+        let viewH: CGFloat = _font.lineHeight;
         let viewY: CGFloat = (size.height-viewH)*0.5;
         let viewW: CGFloat = size.width/CGFloat(count);
         
