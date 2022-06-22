@@ -75,7 +75,7 @@ extension MainViewController {
         }()
         private let _line: UIView = {
             let line = UIView()
-            line.backgroundColor = UIColor.init(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 1.0)
+            line.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 1.0)
             line.isUserInteractionEnabled = false
             return line
         }()
@@ -140,7 +140,7 @@ extension MainViewController {
         }
         
         override func layoutSubviews() {
-            super.layoutSubviews();
+            super.layoutSubviews()
             let bounds = self.bounds
             let windowSize = bounds.size
             let windowWidth = windowSize.width

@@ -40,7 +40,7 @@ open class KSSegmentedControl: UIView {
         layer.masksToBounds = true
         let pointSize = font.pointSize
         let fontName = font.fontName as CFString
-        let fontRef = CGFont.init(fontName)
+        let fontRef = CGFont(fontName)
         let normalTextColor = self.normalTextColor.cgColor
         for i in 0..<items.count {
             let normalTextLayer = normalTextLayerArray[i]
@@ -71,7 +71,7 @@ open class KSSegmentedControl: UIView {
         for i in 0..<count {
             let normalTextLayer = _normalTextLayerArray[i]
             let highlightTextLayer = _highlightTextLayerArray[i]
-            let rect = CGRect.init(x: viewX, y: viewY, width: viewW, height: viewH)
+            let rect = CGRect(x: viewX, y: viewY, width: viewW, height: viewH)
             normalTextLayer.frame = rect
             highlightTextLayer.frame = rect
             viewX = rect.maxX
@@ -137,7 +137,7 @@ open class KSSegmentedControl: UIView {
         didSet {
             let pointSize = font.pointSize
             let fontName = font.fontName as CFString
-            let fontRef = CGFont.init(fontName)
+            let fontRef = CGFont(fontName)
             for i in 0..<items.count {
                 let normalTextLayer = _normalTextLayerArray[i]
                 normalTextLayer.font = fontRef
